@@ -1,0 +1,14 @@
+{% extends "accounts/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <h5>Welcome {{ user.full_name }}</h5>
+        <h6>Your session has ended today!!!</h6>
+        <hr>
+        <h6>Check in : {{ attend.start_time }}</h6>
+        {% if attend.o_break %}
+            <h6>Break  : {{ attend.break_time }}</h6>
+        {% endif %}
+        <h6>Check out : {{ attend.end_time }}</h6>
+    </div>
+{% endblock content %}

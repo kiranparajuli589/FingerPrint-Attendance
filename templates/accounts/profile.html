@@ -1,0 +1,47 @@
+{% extends "accounts/base.html" %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.full_name }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+      </div>
+        <div class="content-section">
+          {{ user.profile.bio }}
+        </div>
+        <div class=" col-md-9 col-lg-7 ">
+          <table class="table table-user-information">
+            <tbody>
+              <tr>
+                <td>Name:</td>
+                <td>{{user.full_name}}</td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <td>{{user.email}}</td>
+              </tr>
+              <tr>
+                <td>Fingercode:</td>
+                <td>{{user.fingercode}}</td>
+              </tr>
+              <tr>
+                <td>User Group:</td>
+                <td>{{user.profile.group}}</td>
+              </tr>
+              <tr>
+                <td>Address:</td>
+                <td>{{user.profile.address}}</td>
+              </tr>
+              <tr>
+                <td>Phone:</td>
+                <td>{{user.profile.phone}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <a class="btn btn-outline-info" href="{% url 'edit-profile' %}">Edit Profile</a>
+        <a class="btn btn-outline-danger" href="{% url 'change-pw' %}">Change Your Password</a>
+    </div>
+{% endblock content %}

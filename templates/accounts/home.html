@@ -1,0 +1,26 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+    <div class="select2-container--classic">
+      {% if user.is_authenticated %}
+        <h3>{{ user.full_name }}</h3>
+          <div class="content-section">
+            <h5>FingerScan</h5>
+            <a class="button" href="{% url 'fingerscan' %}">Scan</a>
+          </div>
+          <div class="content-section">
+            <h5>View your Attendance Log</h5>
+            <a class="btn btn-outline-info" href="{% url 'log' %}">Attendance Log</a>
+          </div>
+          <div class="content-section">
+            <h5>Search</h5>
+            <a class="btn btn-outline-danger" href="{% url 'search' %}">Search</a>
+          </div>
+      {% else %}
+          <h3>You are not connected</h3>
+          <a class="btn btn-outline-info" href="{% url 'login' %}">Login</a>
+          <a class="btn btn-outline-danger" href="{% url 'register' %}">Register</a>
+      {% endif %}
+    </div>
+
+{% endblock %}

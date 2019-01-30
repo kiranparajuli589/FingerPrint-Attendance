@@ -1,0 +1,12 @@
+{% extends "accounts/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <h5>Welcome {{ user.full_name }}</h5>
+        <h6>Check in : {{ attend.start_time }}</h6>
+        <h6>Break  : {{ attend.break_time }}</h6>
+
+        <hr>
+        <a class="btn btn-outline-danger" href="{% url 'check-out' %}">Checkout</a>
+    </div>
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends "accounts/base.html" %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.full_name }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+      </div>
+{#        <div class=" col-md-9 col-lg-7 ">#}
+      <table class="table table-user-information">
+        <tbody>
+          <tr>
+              <td><strong>Date (AD)</strong></td>
+              <td><strong>Date (BS)</strong></td>
+              <td><strong>Check In</strong></td>
+              <td><strong>Break</strong></td>
+              <td><strong>Check Out</strong></td>
+              <td><strong>Status</strong></td>
+          </tr>
+          {% for attend in attends %}
+              <tr>
+                <td>{{ attend.date_ad }}</td>
+                <td>{{ attend.date_bs }}</td>
+                <td>{{ attend.start_time }}</td>
+                <td>{{ attend.break_time }}</td>
+                <td>{{ attend.end_time }}</td>
+                  {% if attend.status %}
+                      <td>Present</td>
+                  {% else %}
+                      <td>Absent</td>
+                  {% endif %}
+              </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+{#        </div>#}
+    </div>
+{% endblock content %}
